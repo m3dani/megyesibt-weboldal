@@ -46,6 +46,21 @@ a:focus-visible { outline: 3px solid var(--brown-500); outline-offset: 3px; }
 .main-nav { display: flex; align-items: center; gap: clamp(14px, 2vw, 28px); font-size: 14px; font-weight: 650; }
 .main-nav a:hover { color: var(--brown-700); }
 .header-phone { padding: 8px 16px; border-radius: 999px; background: var(--forest-900); color: white; font-size: 14px; font-weight: 750; white-space: nowrap; }
+.mobile-menu { display: none; }
+.mobile-menu-button { min-height: 40px; padding: 7px 11px; display: inline-flex; align-items: center; gap: 9px; border: 1px solid var(--border); border-radius: 8px; background: var(--cream-50); color: var(--forest-900); font: 750 13px/1 Inter, ui-sans-serif, system-ui, sans-serif; cursor: pointer; }
+.mobile-menu-button:focus-visible { outline: 3px solid var(--brown-500); outline-offset: 2px; }
+.hamburger-icon { width: 20px; height: 16px; position: relative; display: block; }
+.hamburger-icon span { position: absolute; left: 0; width: 20px; height: 2px; border-radius: 2px; background: currentColor; transition: transform .18s ease, opacity .18s ease, top .18s ease; }
+.hamburger-icon span:nth-child(1) { top: 0; }
+.hamburger-icon span:nth-child(2) { top: 7px; }
+.hamburger-icon span:nth-child(3) { top: 14px; }
+.mobile-menu-button[aria-expanded="true"] .hamburger-icon span:nth-child(1) { top: 7px; transform: rotate(45deg); }
+.mobile-menu-button[aria-expanded="true"] .hamburger-icon span:nth-child(2) { opacity: 0; }
+.mobile-menu-button[aria-expanded="true"] .hamburger-icon span:nth-child(3) { top: 7px; transform: rotate(-45deg); }
+.mobile-menu-panel { position: fixed; z-index: 40; top: 62px; right: 14px; left: 14px; padding: 10px; border: 1px solid var(--border); border-radius: 10px; background: var(--cream-50); box-shadow: 0 18px 42px rgba(16, 41, 28, .2); }
+.mobile-menu-panel[hidden] { display: none; }
+.mobile-menu-panel a { min-height: 46px; padding: 10px 13px; display: flex; align-items: center; border-radius: 7px; color: var(--forest-900); font-size: 15px; font-weight: 750; }
+.mobile-menu-panel a:hover, .mobile-menu-panel a:focus-visible { background: var(--cream-100); }
 
 .hero {
   min-height: 650px;
@@ -202,11 +217,10 @@ tbody tr + tr { border-top: 1px solid #ede5d5; }
 
 @media (max-width: 900px) {
   body { padding-bottom: 72px; }
-  .site-header { min-height: 100px; padding: 9px 18px 0; display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: 42px 48px; gap: 0; align-items: center; }
-  .brand { grid-column: 1; grid-row: 1; width: fit-content; }
-  .header-phone { display: none; }
-  .main-nav { grid-column: 1; grid-row: 2; width: 100%; min-width: 0; padding: 8px 1px 11px; display: flex; justify-content: flex-start; gap: 20px; overflow-x: auto; white-space: nowrap; scrollbar-width: none; }
-  .main-nav::-webkit-scrollbar { display: none; }
+  .site-header { min-height: 62px; padding: 0 14px; display: flex; gap: 14px; }
+  .brand { width: fit-content; }
+  .header-phone, .main-nav { display: none; }
+  .mobile-menu { margin-left: auto; display: block; }
   .brand-mark { width: 32px; height: 32px; }
   .hero { min-height: 0; padding: 54px 20px 64px; display: block; }
   .wood-rings { display: none; }
@@ -260,8 +274,8 @@ tbody tr + tr { border-top: 1px solid #ede5d5; }
 }
 
 @media (max-width: 480px) {
-  .site-header { padding-inline: 14px; }
-  .main-nav { gap: 17px; font-size: 13px; }
+  .mobile-menu-label { display: none; }
+  .mobile-menu-button { width: 42px; padding-inline: 10px; justify-content: center; }
   .sticky-call { font-size: 13px; }
 }
 

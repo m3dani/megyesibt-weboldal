@@ -48,6 +48,9 @@ test("renders the complete Hungarian one-page site", async () => {
   assert.match(html, /☎ Hívás: \+36 30 986 9255/);
   assert.match(html, /📅/);
   assert.match(html, /🚚/);
+  assert.match(html, /aria-controls="mobile-navigation"/);
+  assert.match(html, /aria-label="Mobil navigáció"/);
+  assert.match(html, /Menü megnyitása/);
   assert.match(html, /Székhely: 9775 Nemeskolta, Szabadság u\. 7\./);
   assert.match(html, new RegExp(`© (?:<!-- -->)?${new Date().getFullYear()}(?:<!-- -->)? – Megyesi Bt\\.`));
   assert.doesNotMatch(html, /Telefonos és e-mailes kapcsolatfelvétel · nincs űrlap/);

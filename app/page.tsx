@@ -1,3 +1,5 @@
+import { MobileMenu } from "./MobileMenu";
+
 const phoneHref = "tel:+36309869255";
 const emailHref = "mailto:megyesibt@gmail.com";
 
@@ -20,6 +22,7 @@ export default function Home() {
           <a href="#kapcsolat">Kapcsolat</a>
         </nav>
         <a className="header-phone" href={phoneHref}>☎ Hívás: +36 30 986 9255</a>
+        <MobileMenu />
       </header>
 
       <main id="kezdolap">
