@@ -2,6 +2,8 @@ const phoneHref = "tel:+36309869255";
 const emailHref = "mailto:megyesibt@gmail.com";
 
 export default function Home() {
+  const currentYear = new Date().getFullYear();
+
   return (
     <>
       <header className="site-header">
@@ -18,7 +20,6 @@ export default function Home() {
           <a href="#kapcsolat">Kapcsolat</a>
         </nav>
         <a className="header-phone" href={phoneHref}>☎ Hívás: +36 30 986 9255</a>
-        <a className="mobile-header-call" href={phoneHref}>☎ Hívás</a>
       </header>
 
       <main id="kezdolap">
@@ -31,8 +32,8 @@ export default function Home() {
               Vasvár, Sárvár, Vép és környéke)
             </p>
             <div className="hero-actions">
-              <a className="button button-primary" href={phoneHref}><span aria-hidden="true">☎</span> Hívás rendeléshez</a>
-              <a className="button button-secondary" href={emailHref}><span aria-hidden="true">✉</span> E-mail</a>
+              <a className="button button-primary" href={phoneHref}><span className="button-icon" aria-hidden="true">☎</span> Hívás: +36 30 986 9255</a>
+              <a className="button button-secondary" href={emailHref}><span className="button-icon button-icon-mail" aria-hidden="true">✉</span> E-mail</a>
             </div>
             <ul className="highlights" aria-label="Fő feltételek">
               <li>Kályhakész tűzifa</li>
@@ -190,11 +191,11 @@ export default function Home() {
                 <div><h3>Hívjon minket</h3><p>Hívja a +36 30 986 9255-ös telefonszámot munkanapokon vagy hétvégén is.</p></div>
               </li>
               <li>
-                <span className="step-number" aria-hidden="true">◷</span>
+                <span className="step-number" aria-hidden="true">📅</span>
                 <div><h3>Egyeztetünk</h3><p>Megbeszéljük a fa fajtáját, mennyiségét, a pontos árat és a szállítási időpontot.</p></div>
               </li>
               <li>
-                <span className="step-number" aria-hidden="true">▰</span>
+                <span className="step-number" aria-hidden="true">🚚</span>
                 <div><h3>Kiszállítás és fizetés</h3><p>A megbeszélt időpontban kiszállítjuk a fát. Fizetés a helyszínen, melyről számlát adunk.</p></div>
               </li>
             </ol>
@@ -244,7 +245,7 @@ export default function Home() {
         <div className="footer-inner">
           <div>
             <p className="footer-brand">Megyesi Bt.</p>
-            <p>Telefonos és e-mailes kapcsolatfelvétel · nincs űrlap</p>
+            <p>© {currentYear} – Megyesi Bt. · Minden jog fenntartva.</p>
           </div>
           <nav className="footer-links" aria-label="Jogi információk">
             <a href="#impresszum">Impresszum</a>
@@ -253,8 +254,8 @@ export default function Home() {
           <section className="legal-panel" id="impresszum" aria-labelledby="impresszum-title">
             <h2 id="impresszum-title">Impresszum</h2>
             <p>
-              Üzemeltető: Megyesi Bt. · Telephely: 9775 Nemeskolta, 0102/3 HRSZ ·
-              EUTR azonosító: AA8633932 · Kapcsolat: <a href={emailHref}>megyesibt@gmail.com</a>
+              Üzemeltető: Megyesi Bt. · Székhely: 9775 Nemeskolta, Szabadság u. 7.
+              Kapcsolat: <a href={phoneHref}>+36 30 986 9255</a>, <a href={emailHref}>megyesibt@gmail.com</a>
             </p>
           </section>
           <section className="legal-panel" id="adatkezeles" aria-labelledby="adat-title">
@@ -269,7 +270,7 @@ export default function Home() {
       </footer>
 
       <a className="sticky-call" href={phoneHref} aria-label="Megyesi Bt. hívása rendeléshez">
-        Hívás rendeléshez
+        ☎ Hívás: +36 30 986 9255
       </a>
     </>
   );

@@ -45,6 +45,12 @@ test("renders the complete Hungarian one-page site", async () => {
   assert.match(html, /AA8633932/);
   assert.match(html, /30 000 Ft/);
   assert.match(html, /33 000 Ft/);
+  assert.match(html, /☎ Hívás: \+36 30 986 9255/);
+  assert.match(html, /📅/);
+  assert.match(html, /🚚/);
+  assert.match(html, /Székhely: 9775 Nemeskolta, Szabadság u\. 7\./);
+  assert.match(html, new RegExp(`© (?:<!-- -->)?${new Date().getFullYear()}(?:<!-- -->)? – Megyesi Bt\\.`));
+  assert.doesNotMatch(html, /Telefonos és e-mailes kapcsolatfelvétel · nincs űrlap/);
   assert.match(html, /tel:\+36309869255/);
   assert.match(html, /mailto:megyesibt@gmail\.com/);
   assert.match(html, /google\.com\/maps\?q=Nemeskolta(?:&|&amp;)output=embed/);
