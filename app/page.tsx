@@ -10,7 +10,7 @@ export default function Home() {
     <>
       <header className="site-header">
         <a className="brand" href="#kezdolap" aria-label="Megyesi Bt. – kezdőlap">
-          <span className="brand-mark" aria-hidden="true">▲</span>
+          <span className="brand-mark" aria-hidden="true" />
           <span>Megyesi Bt.</span>
         </a>
         <nav className="main-nav" aria-label="Fő navigáció">

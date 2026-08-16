@@ -38,6 +38,8 @@ test("renders the complete Hungarian one-page site", async () => {
   }
 
   assert.match(html, /Üdvözöljük a MEGYESI BT\. weboldalán!/);
+  assert.match(html, /class="brand-mark" aria-hidden="true"/);
+  assert.doesNotMatch(html, />▲</);
   assert.match(html, /fakitermelés/i);
   assert.match(html, /komplex erdészeti szolgáltatások/);
   assert.doesNotMatch(html, /PLACEHOLDER – CSERÉLENDŐ/);

@@ -42,7 +42,15 @@ a:focus-visible { outline: 3px solid var(--brown-500); outline-offset: 3px; }
   box-shadow: 0 1px 0 rgba(30, 60, 41, .09);
 }
 .brand { display: inline-flex; align-items: center; gap: 10px; color: var(--forest-900); font: 700 18px Georgia, serif; }
-.brand-mark { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 50%; background: var(--forest-700); color: white; font-size: 13px; }
+.brand-mark {
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  overflow: hidden;
+  border-radius: 50%;
+  background: var(--forest-900) url("/brand-tree.png") center / cover no-repeat;
+  box-shadow: 0 0 0 1px rgba(133, 87, 47, .18);
+}
 .main-nav { display: flex; align-items: center; gap: clamp(14px, 2vw, 28px); font-size: 14px; font-weight: 650; }
 .main-nav a:hover { color: var(--brown-700); }
 .header-phone { padding: 8px 16px; border-radius: 999px; background: var(--forest-900); color: white; font-size: 14px; font-weight: 750; white-space: nowrap; }
@@ -86,17 +94,58 @@ h1 { max-width: 720px; margin: 0; font: 700 clamp(48px, 5.2vw, 76px)/1.04 Georgi
 .highlights { margin: 24px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; list-style: none; }
 .highlights li { padding: 5px 11px; border-radius: 7px; background: var(--mint-100); color: #1f673b; font-weight: 700; }
 .wood-rings {
+  position: relative;
+  isolation: isolate;
   width: min(38vw, 470px);
   aspect-ratio: 1;
   justify-self: end;
   display: grid;
   place-items: center;
-  border: clamp(50px, 5vw, 78px) solid #cb9855;
-  border-radius: 50%;
-  background: #e7c27f;
-  box-shadow: inset 0 0 0 clamp(42px, 4vw, 66px) #9b6d3a;
+  overflow: hidden;
+  border: clamp(9px, 1vw, 14px) solid var(--brown-500);
+  border-radius: 48% 52% 46% 54% / 52% 46% 54% 48%;
+  background: var(--forest-900);
+  box-shadow: 0 28px 62px rgba(8, 25, 16, .3), inset 0 0 0 3px rgba(255, 253, 248, .06);
+  transform: rotate(-3deg);
 }
-.wood-rings span { width: 34%; aspect-ratio: 1; display: grid; place-items: center; border-radius: 50%; background: var(--cream-100); color: var(--forest-900); font: 700 28px Georgia, serif; }
+.wood-rings::before {
+  position: absolute;
+  z-index: 0;
+  inset: 4%;
+  border-radius: 49% 51% 47% 53% / 51% 48% 52% 49%;
+  background: repeating-radial-gradient(
+    ellipse at 52% 49%,
+    transparent 0 16px,
+    rgba(199, 144, 77, .92) 17px 21px,
+    transparent 22px 37px
+  );
+  content: "";
+  transform: rotate(4deg) scale(1.05, .98);
+}
+.wood-rings::after {
+  position: absolute;
+  z-index: 0;
+  inset: 10%;
+  border: 2px solid rgba(199, 144, 77, .7);
+  border-radius: 46% 54% 49% 51% / 53% 47% 55% 45%;
+  content: "";
+  transform: rotate(-5deg);
+}
+.wood-rings span {
+  position: relative;
+  z-index: 1;
+  width: 32%;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border: 2px solid var(--brown-500);
+  border-radius: 50%;
+  background: rgba(16, 41, 28, .94);
+  color: var(--cream-100);
+  box-shadow: 0 0 0 9px rgba(30, 60, 41, .78);
+  font: 700 clamp(22px, 2.2vw, 30px) Georgia, serif;
+  transform: rotate(3deg);
+}
 
 .section { scroll-margin-top: 88px; }
 .section-inner, .intro-inner, .footer-inner {
