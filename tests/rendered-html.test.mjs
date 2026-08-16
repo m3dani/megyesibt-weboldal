@@ -28,7 +28,7 @@ test("renders the complete Hungarian one-page site", async () => {
 
   for (const id of [
     "bemutatkozas",
-    "tuzifa",
+    "termekek",
     "arak",
     "szallitas",
     "rendeles",
@@ -38,9 +38,13 @@ test("renders the complete Hungarian one-page site", async () => {
   }
 
   assert.match(html, /Üdvözöljük a MEGYESI BT\. weboldalán!/);
-  assert.match(html, /fakitermelés/);
+  assert.match(html, /fakitermelés/i);
   assert.match(html, /komplex erdészeti szolgáltatások/);
-  assert.match(html, /PLACEHOLDER – CSERÉLENDŐ/);
+  assert.doesNotMatch(html, /PLACEHOLDER – CSERÉLENDŐ/);
+  assert.match(html, /30\+ év/);
+  assert.match(html, /AA8633932/);
+  assert.match(html, /30 000 Ft/);
+  assert.match(html, /33 000 Ft/);
   assert.match(html, /tel:\+36309869255/);
   assert.match(html, /mailto:megyesibt@gmail\.com/);
   assert.match(html, /google\.com\/maps\?q=Nemeskolta(?:&|&amp;)output=embed/);
@@ -49,12 +53,14 @@ test("renders the complete Hungarian one-page site", async () => {
 
 test("keeps the order constraints visible", async () => {
   const html = await (await render()).text();
-  assert.match(html, /Min\. 3 m³/);
-  assert.match(html, /Max\. 6 m³ \/ fuvar/);
+  assert.match(html, /3–6 m³ \/ fuvar/);
+  assert.match(html, /Minimum rendelés: 3 m³/);
+  assert.match(html, /Egy fuvar maximum 6 m³/);
   assert.match(html, /Szállítás az árban/);
-  assert.match(html, /Számlaadás/);
+  assert.match(html, /számlát adunk/i);
   assert.match(html, /Szombathely/);
   assert.match(html, /Körmend/);
   assert.match(html, /Vasvár/);
-  assert.match(html, /Rum/);
+  assert.match(html, /Sárvár/);
+  assert.match(html, /Vép/);
 });

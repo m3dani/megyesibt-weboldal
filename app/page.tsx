@@ -1,30 +1,3 @@
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Tűzifa házhozszállítás Nemeskolta környékén | Megyesi Bt.",
-  description:
-    "Tűzifa házhozszállítás Nemeskoltáról kb. 30 km-es körzetben. Telefonos rendelés, minimum 3 m³, maximum 6 m³ fuvaronként.",
-  keywords: [
-    "tűzifa házhozszállítás",
-    "Nemeskolta",
-    "Szombathely tűzifa",
-    "Körmend tűzifa",
-    "Vasvár tűzifa",
-    "kályhakész tűzifa",
-  ],
-  openGraph: {
-    title: "Tűzifa házhozszállítással | Megyesi Bt.",
-    description:
-      "Telefonos rendelés és kiszállítás Nemeskolta kb. 30 km-es körzetében.",
-    locale: "hu_HU",
-    type: "website",
-  },
-  icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
-  },
-};
-
 const phoneHref = "tel:+36309869255";
 const emailHref = "mailto:megyesibt@gmail.com";
 
@@ -38,14 +11,14 @@ export default function Home() {
         </a>
         <nav className="main-nav" aria-label="Fő navigáció">
           <a href="#bemutatkozas">Bemutatkozás</a>
-          <a href="#tuzifa">Tűzifa</a>
+          <a href="#termekek">Termékek</a>
           <a href="#arak">Árak</a>
           <a href="#szallitas">Szállítás</a>
           <a href="#rendeles">Rendelés</a>
           <a href="#kapcsolat">Kapcsolat</a>
         </nav>
-        <a className="header-phone" href={phoneHref}>+36 30 986 9255</a>
-        <a className="mobile-header-call" href={phoneHref}>Hívás</a>
+        <a className="header-phone" href={phoneHref}>☎ Hívás: +36 30 986 9255</a>
+        <a className="mobile-header-call" href={phoneHref}>☎ Hívás</a>
       </header>
 
       <main id="kezdolap">
@@ -55,21 +28,21 @@ export default function Home() {
             <h1 id="hero-title">Tűzifa házhozszállítással</h1>
             <p className="hero-lead">
               Nemeskoltáról kb. 30 km-es körzetben (Szombathely, Körmend,
-              Vasvár, Rum és környéke)
+              Vasvár, Sárvár, Vép és környéke)
             </p>
             <div className="hero-actions">
-              <a className="button button-primary" href={phoneHref}>Hívás rendeléshez</a>
-              <a className="button button-secondary" href={emailHref}>E-mail</a>
+              <a className="button button-primary" href={phoneHref}><span aria-hidden="true">☎</span> Hívás rendeléshez</a>
+              <a className="button button-secondary" href={emailHref}><span aria-hidden="true">✉</span> E-mail</a>
             </div>
             <ul className="highlights" aria-label="Fő feltételek">
-              <li>Min. 3 m³</li>
-              <li>Max. 6 m³ / fuvar</li>
+              <li>Kályhakész tűzifa</li>
+              <li>Hasított méterfa</li>
+              <li>3–6 m³ / fuvar</li>
               <li>Szállítás az árban</li>
-              <li>Számlaadás</li>
             </ul>
           </div>
           <div className="wood-rings" aria-hidden="true">
-            <span>20+ év</span>
+            <span>30+ év</span>
           </div>
         </section>
 
@@ -78,17 +51,28 @@ export default function Home() {
             <h2 id="intro-title">BEMUTATKOZÁS</h2>
             <p className="intro-greeting">Üdvözöljük a MEGYESI BT. weboldalán!</p>
             <p>
-              Családi vállalkozásunk több mint 20 éve foglalkozik erdészeti
-              munkákkal. Tevékenységünk része a fakitermelés, a faanyag
-              előkészítése, valamint komplex erdészeti szolgáltatások nyújtása
-              magánerdők és megrendelők számára.
+              Családi vállalkozásunk több mint 30 éve foglalkozik erdészeti
+              munkákkal. Cégünk erdőgazdálkodásra jogosult, kiemelt besorolással
+              rendelkező erdészeti szakirányító vállalkozás. Az erdészeti feladatok
+              ellátásához saját alkalmazásban lévő szakemberekkel és a hozzá tartozó
+              gépparkkal rendelkezünk. Vállalkozásunk komplex erdészeti szolgáltatásokat
+              nyújt magánerdők kezelői és más megrendelők számára.
             </p>
+            <h3 className="services-title">Vállaljuk:</h3>
+            <ul className="service-list">
+              <li>Kezeletlen erdőterületek erdőkezelését, illetve tulajdonosi használat esetén a szakirányítási feladatok elvégzését</li>
+              <li>Az erdészeti hatóság felé szükséges engedélyezést, elszámolások elkészítését és kapcsolattartást</li>
+              <li>Erdőművelési és fahasználati feladatok komplett végrehajtását</li>
+              <li>Akácosok gyökérszaggatását</li>
+              <li>Fakitermelés és közelítés elvégzését (LKT, forwarder)</li>
+              <li>Értékesítés és szállítás szervezését</li>
+            </ul>
             <p>
               Tűzifából kályhakész tűzifát és igény szerint hasított méteres fát
               kínálunk, Nemeskoltáról kb. 30 km-es körzetben házhozszállítással.
-              Célunk, hogy megbízható forrásból származó, jó minőségű
-              tüzelőanyaggal szolgáljuk ki a környékbeli háztartásokat átlátható
-              feltételekkel.
+              Az értékesített tűzifa vállalkozásunk által kezelt erdőkből származik,
+              ezáltal megbízható, ellenőrizhető és nyomon követhető módon kerül
+              kereskedelmi forgalomba.
             </p>
             <p>
               A szállítás az árban benne van (min. 3 m³, egy fuvar max. 6 m³),
@@ -101,53 +85,75 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="section products" id="tuzifa" aria-labelledby="products-title">
+        <section className="section products" id="termekek" aria-labelledby="products-title">
           <div className="section-inner">
-            <h2 id="products-title">Tűzifa kínálat</h2>
-            <div className="product-grid">
-              <article className="product-card">
-                <span className="card-kicker">Tűzifa</span>
-                <h3>Kályhakész tűzifa</h3>
-                <p>Hasított, méretre vágott tűzifa, közvetlenül felhasználásra előkészítve.</p>
-              </article>
-              <article className="product-card">
-                <span className="card-kicker">Tűzifa</span>
-                <h3>Hasított méteres fa</h3>
-                <p>Igény szerint hasított méteres fa, egyeztetett készletből és mennyiségben.</p>
-              </article>
-            </div>
+            <h2 id="products-title">Termékek</h2>
             <p className="stock-note">
               Készlet szezonálisan változik – rendelés és egyeztetés kizárólag telefonon.
             </p>
+            <div className="product-grid">
+              <article className="product-card">
+                <span className="product-icon" aria-hidden="true">🔥</span>
+                <div>
+                  <h3>Kályhakész tűzifa – ömlesztett m³</h3>
+                  <ul className="product-features">
+                    <li>Kályhakészre vágott, hasított tűzifa</li>
+                    <li>Azonnal tüzelhető vagy tárolható</li>
+                    <li>Választható méret: 25 vagy 33 cm</li>
+                    <li>1 × 1 × 1 méter, szórt</li>
+                  </ul>
+                </div>
+              </article>
+              <article className="product-card">
+                <span className="product-icon" aria-hidden="true">🌳</span>
+                <div>
+                  <h3>Hasított méterfa – m³</h3>
+                  <ul className="product-features">
+                    <li>Méteres hosszúságú, hasított rönkök</li>
+                    <li>1 × 1 × 1 méter, rakott</li>
+                  </ul>
+                </div>
+              </article>
+            </div>
           </div>
         </section>
 
         <section className="section prices" id="arak" aria-labelledby="prices-title">
           <div className="section-inner price-inner">
-            <div className="section-heading-row">
-              <h2 id="prices-title">Árak</h2>
-              <span className="placeholder-badge">PLACEHOLDER – CSERÉLENDŐ</span>
-            </div>
-            <div className="table-wrap">
-              <table>
-                <caption className="sr-only">Minta tűzifa árlista, cserélendő adatokkal</caption>
-                <thead>
-                  <tr>
-                    <th scope="col">Termék</th>
-                    <th scope="col">Egység</th>
-                    <th scope="col">Tájékoztató ár</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr><td>Kályhakész keményfa</td><td>m³</td><td>XX XXX Ft</td></tr>
-                  <tr><td>Kályhakész vegyes fa</td><td>m³</td><td>XX XXX Ft</td></tr>
-                  <tr><td>Hasított méteres fa</td><td>m³</td><td>XX XXX Ft</td></tr>
-                </tbody>
-              </table>
+            <h2 id="prices-title">Árak</h2>
+            <div className="price-groups">
+              <div className="table-wrap">
+                <table>
+                  <caption>Kályhakész tűzifa</caption>
+                  <thead>
+                    <tr><th scope="col">Fafaj</th><th scope="col">Tájékoztató ár</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Cser–tölgy</td><td>30 000 Ft <span>/ ömlesztett m³</span></td></tr>
+                    <tr><td>Akác</td><td>30 000 Ft <span>/ ömlesztett m³</span></td></tr>
+                    <tr><td>Vöröstölgy</td><td>28 000 Ft <span>/ ömlesztett m³</span></td></tr>
+                    <tr><td>Magas kőris</td><td>28 000 Ft <span>/ ömlesztett m³</span></td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div className="table-wrap">
+                <table>
+                  <caption>Hasított méterfa</caption>
+                  <thead>
+                    <tr><th scope="col">Fafaj</th><th scope="col">Tájékoztató ár</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Cser–tölgy</td><td>33 000 Ft <span>/ m³</span></td></tr>
+                    <tr><td>Akác</td><td>33 000 Ft <span>/ m³</span></td></tr>
+                    <tr><td>Vöröstölgy</td><td>30 000 Ft <span>/ m³</span></td></tr>
+                    <tr><td>Magas kőris</td><td>30 000 Ft <span>/ m³</span></td></tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
             <p className="price-note">
-              A feltüntetett sorok és árak kizárólag minták. Az aktuális készletről
-              és árakról kérjük, érdeklődjön telefonon.
+              A táblázatban szereplő árak tájékoztató jellegűek, nem minősülnek
+              ajánlatnak. Az aktuális készletről és árakról kérjük, érdeklődjön telefonon.
             </p>
           </div>
         </section>
@@ -158,7 +164,7 @@ export default function Home() {
               <h2 id="delivery-title">Szállítás és feltételek</h2>
               <p>
                 Nemeskoltáról kb. 30 km-es körzetben szállítunk: Szombathely,
-                Körmend, Vasvár, Rum és környéke. A pontos címről és szállítási
+                Körmend, Vasvár, Sárvár, Vép és környéke. A pontos címről és szállítási
                 időpontról telefonon egyeztetünk.
               </p>
             </div>
@@ -167,29 +173,29 @@ export default function Home() {
               <li>Egy fuvar maximum 6 m³</li>
               <li>A kiszállítás benne van az árban</li>
               <li>Minden vásárlásról számlát adunk</li>
+              <li className="condition-warning">A tűzifa helyszínen történő lebillentését követően reklamációt nem áll módunkban elfogadni!</li>
             </ul>
           </div>
         </section>
 
         <section className="section process" id="rendeles" aria-labelledby="process-title">
-          <div className="section-inner">
-            <h2 id="process-title">Rendelés menete</h2>
-            <p className="section-lead">Egyszerűen, kizárólag telefonos egyeztetéssel.</p>
+          <div className="section-inner process-inner">
+            <div className="process-heading">
+              <h2 id="process-title">Rendelés menete</h2>
+              <p className="section-lead">Egyszerűen, kizárólag telefonos egyeztetéssel.</p>
+            </div>
             <ol className="process-grid">
               <li>
-                <span className="step-number">01</span>
-                <h3>Hívjon minket</h3>
-                <p>Telefonon jelezze a kívánt terméket és mennyiséget.</p>
+                <span className="step-number" aria-hidden="true">☎</span>
+                <div><h3>Hívjon minket</h3><p>Hívja a +36 30 986 9255-ös telefonszámot munkanapokon vagy hétvégén is.</p></div>
               </li>
               <li>
-                <span className="step-number">02</span>
-                <h3>Egyeztetünk</h3>
-                <p>Átbeszéljük a részleteket, készletet és a szállítás idejét.</p>
+                <span className="step-number" aria-hidden="true">◷</span>
+                <div><h3>Egyeztetünk</h3><p>Megbeszéljük a fa fajtáját, mennyiségét, a pontos árat és a szállítási időpontot.</p></div>
               </li>
               <li>
-                <span className="step-number">03</span>
-                <h3>Kiszállítunk</h3>
-                <p>A megbeszélt időben érkezünk, és számlát adunk.</p>
+                <span className="step-number" aria-hidden="true">▰</span>
+                <div><h3>Kiszállítás és fizetés</h3><p>A megbeszélt időpontban kiszállítjuk a fát. Fizetés a helyszínen, melyről számlát adunk.</p></div>
               </li>
             </ol>
           </div>
@@ -211,7 +217,11 @@ export default function Home() {
                 </div>
                 <div>
                   <dt>Helyszín</dt>
-                  <dd>Nemeskolta, Magyarország</dd>
+                  <dd>9775 Nemeskolta, 0102/3 HRSZ</dd>
+                </div>
+                <div>
+                  <dt>EUTR azonosító</dt>
+                  <dd>AA8633932</dd>
                 </div>
               </dl>
               <p className="contact-note">
@@ -243,8 +253,8 @@ export default function Home() {
           <section className="legal-panel" id="impresszum" aria-labelledby="impresszum-title">
             <h2 id="impresszum-title">Impresszum</h2>
             <p>
-              Üzemeltető: Megyesi Bt. · Székhely/telephely: Nemeskolta,
-              Magyarország · Kapcsolat: <a href={emailHref}>megyesibt@gmail.com</a>
+              Üzemeltető: Megyesi Bt. · Telephely: 9775 Nemeskolta, 0102/3 HRSZ ·
+              EUTR azonosító: AA8633932 · Kapcsolat: <a href={emailHref}>megyesibt@gmail.com</a>
             </p>
           </section>
           <section className="legal-panel" id="adatkezeles" aria-labelledby="adat-title">
