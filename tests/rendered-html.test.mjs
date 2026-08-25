@@ -23,6 +23,11 @@ test("renders the complete Hungarian one-page site", async () => {
     html,
     /<title>Tűzifa házhozszállítás Nemeskolta környékén \| Megyesi Bt\.<\/title>/i,
   );
+  assert.match(html, /rel="canonical" href="https:\/\/megyesituzifa\.hu\/?"/i);
+  assert.match(html, /property="og:url" content="https:\/\/megyesituzifa\.hu\/?"/i);
+  assert.match(html, /type="application\/ld\+json"/i);
+  assert.match(html, /"@type":"LocalBusiness"/);
+  assert.match(html, /"telephone":"\+36 30 986 9255"/);
   assert.equal((html.match(/<h1\b/gi) ?? []).length, 1);
   assert.match(html, />Tűzifa házhozszállítással<\/h1>/i);
 
@@ -74,4 +79,24 @@ test("keeps the order constraints visible", async () => {
   assert.match(html, /Vasvár/);
   assert.match(html, /Sárvár/);
   assert.match(html, /Vép/);
+});
+
+test("publishes crawl and sitemap metadata for the custom domain", async () => {
+  const workerUrl = new URL("../dist/server/index.js", import.meta.url);
+  workerUrl.searchParams.set("seo-test", `${process.pid}-${Date.now()}`);
+  const { default: worker } = await import(workerUrl.href);
+  const env = { ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) } };
+  const context = { waitUntil() {}, passThroughOnException() {} };
+
+  const robotsResponse = await worker.fetch(new Request("http://localhost/robots.txt"), env, context);
+  assert.equal(robotsResponse.status, 200);
+  const robots = await robotsResponse.text();
+  assert.match(robots, /User-Agent: \*/i);
+  assert.match(robots, /Allow: \//i);
+  assert.match(robots, /Sitemap: https:\/\/megyesituzifa\.hu\/sitemap\.xml/i);
+
+  const sitemapResponse = await worker.fetch(new Request("http://localhost/sitemap.xml"), env, context);
+  assert.equal(sitemapResponse.status, 200);
+  const sitemap = await sitemapResponse.text();
+  assert.match(sitemap, /<loc>https:\/\/megyesituzifa\.hu<\/loc>/i);
 });

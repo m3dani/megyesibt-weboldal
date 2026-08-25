@@ -2,12 +2,46 @@ import { MobileMenu } from "./MobileMenu";
 
 const phoneHref = "tel:+36309869255";
 const emailHref = "mailto:megyesibt@gmail.com";
+const siteUrl = "https://megyesituzifa.hu";
+
+const localBusinessStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": `${siteUrl}/#business`,
+  name: "Megyesi Bt.",
+  url: siteUrl,
+  image: `${siteUrl}/og.png`,
+  logo: `${siteUrl}/brand-tree.png`,
+  description:
+    "Több mint 30 éves erdészeti tapasztalattal működő családi vállalkozás, kályhakész tűzifa és hasított méterfa házhozszállításával Nemeskolta mintegy 30 km-es körzetében.",
+  telephone: "+36 30 986 9255",
+  email: "megyesibt@gmail.com",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Szabadság u. 7.",
+    postalCode: "9775",
+    addressLocality: "Nemeskolta",
+    addressCountry: "HU",
+  },
+  areaServed: ["Nemeskolta", "Szombathely", "Körmend", "Vasvár", "Sárvár", "Vép"],
+  identifier: {
+    "@type": "PropertyValue",
+    name: "EUTR azonosító",
+    value: "AA8633932",
+  },
+};
 
 export default function Home() {
   const currentYear = new Date().getFullYear();
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(localBusinessStructuredData).replace(/</g, "\\u003c"),
+        }}
+      />
       <header className="site-header">
         <a className="brand" href="#kezdolap" aria-label="Megyesi Bt. – kezdőlap">
           <span className="brand-mark" aria-hidden="true" />
