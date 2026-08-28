@@ -21,7 +21,7 @@ test("renders the complete Hungarian one-page site", async () => {
   const html = await response.text();
   assert.match(
     html,
-    /<title>Tűzifa házhozszállítás Nemeskolta környékén \| Megyesi Bt\.<\/title>/i,
+    /<title>Megyesi Bt\. \| Tűzifa házhozszállítás Vas megyében<\/title>/i,
   );
   assert.match(html, /rel="canonical" href="https:\/\/megyesituzifa\.hu\/?"/i);
   assert.match(html, /property="og:url" content="https:\/\/megyesituzifa\.hu\/?"/i);

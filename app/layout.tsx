@@ -2,7 +2,7 @@ import "./globals.css";
 import type { Metadata, Viewport } from "next";
 
 const siteUrl = "https://megyesituzifa.hu";
-const title = "Tűzifa házhozszállítás Nemeskolta környékén | Megyesi Bt.";
+const title = "Megyesi Bt. | Tűzifa házhozszállítás Vas megyében";
 const description = "Tűzifa házhozszállítás Nemeskoltáról kb. 30 km-es körzetben. Telefonos rendelés, minimum 3 m³, maximum 6 m³ fuvaronként.";
 
 export const metadata: Metadata = {
