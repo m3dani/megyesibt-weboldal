@@ -59,11 +59,12 @@ test("renders the complete Hungarian one-page site", async () => {
   assert.match(html, /aria-label="Mobil navigáció"/);
   assert.match(html, /Menü megnyitása/);
   assert.match(html, /Székhely: 9775 Nemeskolta, Szabadság u\. 7\./);
+  assert.doesNotMatch(html, /0102\/3 HRSZ/i);
   assert.match(html, new RegExp(`© (?:<!-- -->)?${new Date().getFullYear()}(?:<!-- -->)? – Megyesi Bt\\.`));
   assert.doesNotMatch(html, /Telefonos és e-mailes kapcsolatfelvétel · nincs űrlap/);
   assert.match(html, /tel:\+36309869255/);
   assert.match(html, /mailto:megyesibt@gmail\.com/);
-  assert.match(html, /google\.com\/maps\?q=Nemeskolta(?:&|&amp;)output=embed/);
+  assert.match(html, /google\.com\/maps\?q=9775%20Nemeskolta%2C%20Szabads%C3%A1g%20u\.%207(?:&|&amp;)output=embed/);
   assert.doesNotMatch(html, /<form\b/i);
 });
 
@@ -99,4 +100,5 @@ test("publishes crawl and sitemap metadata for the custom domain", async () => {
   assert.equal(sitemapResponse.status, 200);
   const sitemap = await sitemapResponse.text();
   assert.match(sitemap, /<loc>https:\/\/megyesituzifa\.hu<\/loc>/i);
+  assert.match(sitemap, /<lastmod>2026-09-01T00:00:00\.000Z<\/lastmod>/i);
 });

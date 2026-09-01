@@ -255,7 +255,7 @@ export default function Home() {
                 </div>
                 <div>
                   <dt>Helyszín</dt>
-                  <dd>9775 Nemeskolta, 0102/3 HRSZ</dd>
+                  <dd>9775 Nemeskolta, Szabadság u. 7.</dd>
                 </div>
                 <div>
                   <dt>EUTR azonosító</dt>
@@ -269,7 +269,7 @@ export default function Home() {
             <div className="map-wrap">
               <iframe
                 title="Megyesi Bt. – Nemeskolta térkép"
-                src="https://www.google.com/maps?q=Nemeskolta&output=embed"
+                src="https://www.google.com/maps?q=9775%20Nemeskolta%2C%20Szabads%C3%A1g%20u.%207&output=embed"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />
